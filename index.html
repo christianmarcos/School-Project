@@ -19,20 +19,19 @@
       display: flex;
       flex-direction: column;
     }
+
     body {
-  background: linear-gradient(-45deg, #1e1e2f, #3a3a5c, #ababbe, #2e2e40);
-  background-size: 400% 400%;
-  animation: gradientBG 10s ease infinite;
-}
+      background: linear-gradient(-45deg, #1e1e2f, #3a3a5c, #ababbe, #2e2e40);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-
-    /* Intro Screen */
     .intro {
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.7);
@@ -73,7 +72,6 @@
       background-color: #ccc;
     }
 
-    /* Sidebar styles */
     .sidebar {
       background-color: rgba(0, 0, 0, 0.8);
       width: 250px;
@@ -106,17 +104,16 @@
     }
 
     .sidebar ul li a.active {
-      color: #ffbf009a; /* Highlight active link */
+      color: #ffbf009a;
       font-weight: bold;
     }
 
-    /* Main content styles */
     main {
       margin-left: 270px;
       margin-top: 100px;
       padding: 20px;
       flex-grow: 1;
-      display: none; /* Hide content initially */
+      display: none;
     }
 
     section {
@@ -127,29 +124,27 @@
       animation: fadeIn 1s ease forwards;
       opacity: 0;
       transform: translateY(30px);
-      display: none; /* Hide sections initially */
+      display: none;
     }
 
     section.visible {
       opacity: 1;
       transform: translateY(0);
-      display: block; /* Show the active section */
+      display: block;
     }
 
     footer {
-  background-color: rgba(0, 0, 0, 0.9);
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-}
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+    }
 
-
-    /* Animation keyframes */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -162,7 +157,6 @@
       }
     }
 
-    /* Mobile responsiveness */
     @media (max-width: 768px) {
       header {
         padding: 10px;
@@ -196,7 +190,6 @@
       }
     }
 
-    /* Toggle button for sidebar */
     .toggle-btn {
       position: fixed;
       top: 20px;
@@ -212,7 +205,6 @@
   </style>
 </head>
 <body>
-  <!-- Intro Screen -->
   <section class="intro" id="intro">
     <div>
       <h1>Welcome to the BSIS Program</h1>
@@ -221,7 +213,6 @@
     </div>
   </section>
 
-  <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <ul>
       <li><a href="#about" onclick="showSection('about', this)">About BSIS</a></li>
@@ -232,10 +223,8 @@
     </ul>
   </aside>
 
-  <!-- Toggle Button for Sidebar (Mobile) -->
   <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-  <!-- Main Content -->
   <main id="main-content">
     <section id="about">
       <h2>About BSIS</h2>
@@ -284,34 +273,27 @@
   </footer>
 
   <script>
-    // Function to hide intro and show the main website content
     function startWebsite() {
-      document.getElementById('intro').style.display = 'none'; // Hide intro screen
-      document.getElementById('sidebar').classList.add('show'); // Show sidebar
-      document.getElementById('main-content').style.display = 'block'; // Show main content
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('sidebar').classList.add('show');
+      document.getElementById('main-content').style.display = 'block';
     }
 
-    // Function to toggle the sidebar in mobile view
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('show');
     }
 
-    // Function to show the selected section and highlight the active link
     function showSection(sectionId, link) {
-      // Hide all sections
       document.querySelectorAll('section').forEach(section => {
         section.classList.remove('visible');
       });
 
-      // Show the selected section
       document.getElementById(sectionId).classList.add('visible');
 
-      // Remove active class from all sidebar links
       document.querySelectorAll('.sidebar ul li a').forEach(a => {
         a.classList.remove('active');
       });
 
-      // Add active class to the clicked link
       link.classList.add('active');
     }
   </script>
