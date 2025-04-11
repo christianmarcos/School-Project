@@ -45,6 +45,14 @@
       left: 0;
       right: 0;
       z-index: 1000;
+      transform: scale(1.2);
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .intro.open {
+      opacity: 1;
+      transform: scale(1);
     }
 
     .intro h1 {
@@ -274,9 +282,12 @@
 
   <script>
     function startWebsite() {
-      document.getElementById('intro').style.display = 'none';
-      document.getElementById('sidebar').classList.add('show');
-      document.getElementById('main-content').style.display = 'block';
+      document.getElementById('intro').classList.add('open');
+      setTimeout(function() {
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('sidebar').classList.add('show');
+        document.getElementById('main-content').style.display = 'block';
+      }, 1000); 
     }
 
     function toggleSidebar() {
